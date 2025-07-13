@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Output and build files
+outputs/
+*.log
+
+# Virtual environments
+venv/
+.env/
+
+# VS Code settings
+.vscode/
+
+# macOS metadata
+.DS_Store
+
+# PDF or DOCX outputs 
+*.pdf
+*.docx
