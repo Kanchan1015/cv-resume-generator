@@ -1,4 +1,6 @@
 import streamlit as st
+from render import render_pdf
+
 
 st.set_page_config(page_title="CV Generator", layout="centered")
 
@@ -106,8 +108,7 @@ with st.form("cv_form"):
             "extras": extras
         }
 
-        output_path = "outputs/resume_streamlit.docx"
-        generate_docx(data, filename=output_path)
+        output_path = render_pdf(data)
         st.session_state.generated_file = output_path
         st.success("Resume generated successfully!")
 
