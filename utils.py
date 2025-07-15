@@ -1,6 +1,3 @@
-from docx import Document
-from docx.shared import Pt
-
 def collect_user_data():
     print("🔹 Let's start with your personal details:\n")
     
@@ -106,44 +103,4 @@ def collect_user_data():
     }
 
    
-
-def generate_docx(data, filename="outputs/resume.docx"):
-    doc = Document()
-
-    # Personal Details
-    personal = data["personal"]
-    doc.add_heading(personal["name"], 0)
-    doc.add_paragraph(f"Email: {personal['email']}")
-    doc.add_paragraph(f"Phone: {personal['phone']}")
-    doc.add_paragraph(f"LinkedIn: {personal['linkedin']}")
-    doc.add_paragraph(f"GitHub: {personal['github']}")
-
-    doc.add_heading("Education", level=1)
-    for edu in data["education"]:
-        doc.add_paragraph(f"{edu['degree']} - {edu['institution']} ({edu['start']} - {edu['end']})")
-
-    doc.add_heading("Work Experience", level=1)
-    for job in data["experience"]:
-        doc.add_paragraph(f"{job['title']} - {job['company']} ({job['start']} - {job['end']})")
-        for point in job["description"]:
-            doc.add_paragraph(f"• {point}", style='List Bullet')
-
-    doc.add_heading("Projects", level=1)
-    for proj in data["projects"]:
-        doc.add_paragraph(f"{proj['title']}: {proj['description']}")
-        doc.add_paragraph(f"Technologies: {', '.join(proj['technologies'])}")
-        if proj["link"]:
-            doc.add_paragraph(f"Link: {proj['link']}")
-
-    doc.add_heading("Skills", level=1)
-    doc.add_paragraph(", ".join(data["skills"]))
-
-    doc.add_heading("Extras", level=1)
-    doc.add_paragraph(f"Languages: {', '.join(data['extras']['languages'])}")
-    doc.add_paragraph(f"Certifications: {', '.join(data['extras']['certifications'])}")
-
-    doc.save(filename)
-    print(f"\n📄 Resume saved as: {filename}")
-
-
 

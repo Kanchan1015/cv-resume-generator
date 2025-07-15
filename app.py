@@ -1,5 +1,4 @@
 import streamlit as st
-from utils import generate_docx
 
 st.set_page_config(page_title="CV Generator", layout="centered")
 
