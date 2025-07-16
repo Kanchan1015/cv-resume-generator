@@ -115,4 +115,4 @@ with st.form("cv_form"):
 # --- Download Button (outside form) ---
 if st.session_state.generated_file:
     with open(st.session_state.generated_file, "rb") as f:
-        st.download_button("⬇️ Download Resume", f, file_name="resume.docx")
+        st.download_button("⬇️ Download Resume", f, file_name="resume.pdf")
